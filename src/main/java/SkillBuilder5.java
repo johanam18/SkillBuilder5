@@ -8,7 +8,7 @@
 public class SkillBuilder5
 {
     /**
-     * Calculates the prefix average of array data and returns the prefex average
+     * Calculates the prefix average of array data and returns the prefix average
      * in a new array.  The parameter data is never touched and left intact.
      *
      * @param data array of double values on which to calculate the prefix average.
@@ -17,8 +17,13 @@ public class SkillBuilder5
      */
     public static double[] prefixAverage(double[] data)
     {
-        //TODO: replace this line with your code.
-        return null;
+        double[]  ans = new double[data.length];
+        double sum = 0;
+        for(int i = 0; i < data.length; i++){
+            sum += data[i];
+            ans[i] = sum / (i+1);
+        }
+        return ans;
     }
 
     /**
@@ -31,8 +36,10 @@ public class SkillBuilder5
      */
     public static int  indexOf(int searchValue, int[] anArray)
     {
-        //TODO: replace this line with your code.
-        return 0;
+        for(int i = 0; i < anArray.length; i++){
+            if(searchValue == anArray[i]) return i;
+        }
+        return -1;
     }
 
     /**
@@ -43,10 +50,12 @@ public class SkillBuilder5
      * @param anArray array in which to look for a value
      * @returns index of the string s in the array; -1 otherwise.
      */
-    public static int  indexOf(String s, String[] anArray)
+    public static int indexOf(String s, String[] anArray)
     {
-        //TODO: replace this line with your code.
-        return 0;
+        for(int i = 0; i < anArray.length; i++){
+            if(s.equals(anArray[i])) return i;
+        }
+        return -1;
     }
 
     /**
@@ -58,8 +67,21 @@ public class SkillBuilder5
      */
     public static String[] remove(String s, String[] anArray)
     {
-        // add your code here
-        return null;
+        int count = 0;
+        for(int i = 0; i < anArray.length; i++){
+            if(s.equals(anArray[i])) count++;
+        }
+
+        String[] ans = new String[anArray.length - count];
+        int index = 0;
+        for (int i = 0; i < anArray.length; i++){
+            if(!s.equals(anArray[i])){
+                ans[index] = anArray[i];
+                index++;
+            }
+
+    }
+        return ans;
     }
 
     /**
@@ -68,6 +90,15 @@ public class SkillBuilder5
      */
     public static void reverse(int[] anArray)
     {
-        // add your code here
+        int[] reverseanArray = new int[anArray.length];
+        for(int i = 0; i < anArray.length; i++){
+            reverseanArray[i] = anArray[i];
+        }
+        int index = 0;
+        for(int i = reverseanArray.length - 1; i >= 0; i--){
+            anArray[index] = reverseanArray[i];
+            index++;
+        }
+
     }
 }
